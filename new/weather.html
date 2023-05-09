@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Information</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+		<div class="logo">
+			<a href="index.html">First responders India</a>
+			<span>Dhaasu Geeks</span>
+		</div>
+		<div class="cta">
+			<a href="donation.html">Donate Now</a>
+			<a href="volunteer.html">Volunteer to Help</a>
+			<a:hover href="#">District Admin Login</a>
+			<div class="dropdown-content">
+				<form>
+					<label for="userid">User ID:</label>
+					<input type="text" id="userid" name="userid"><br><br>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+					<input type="submit" value="Login">
+				</form>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="disaster-list">
+			<h2>Disaster Hit Cities/Locations</h2>
+			<ul>
+				<li>New York</li>
+				<li>Los Angeles</li>
+				<li>Miami</li>
+				<li>Houston</li>
+				<li>San Francisco</li>
+			</ul>
+		</div>
+		<div class="weather-search">
+			<h2>Search for Weather Information</h2>
+			<form>
+				<label for="location">Location:</label>
+				<input type="text" id="location" name="location" placeholder="Enter Location">
+				<input type="submit" value="Search">
+			</form>
+			<div class="current-weather">
+				<h3>Current Weather Information</h3>
+				<p>Location: <span id="current-location">New York, NY</span></p>
+				<p>Temperature: <span id="current-temperature">72°F</span></p>
+				<p>Weather: <span id="current-condition">Sunny</span></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

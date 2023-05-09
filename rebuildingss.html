@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recovery Tracking</title>
+  <link rel="stylesheet" href="st.css">
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <header>
+		<div class="logo">
+			<a href="index.html">SANKAT: Shelters Location</a>
+			<span>Dhaasu Coders</span>
+		</div>
+		<div class="cta">
+			<a id="rzp-button">Donate Now</a>
+			<a href="volunteersList.php">Current Volunteers</a>
+			<a href="./volunteer/login.php">Become Volunteer</a>
+			<a href="chating/login.php">Local Admin Login</a>
+			<div class="dropdown-content">
+				<form>
+					<label for="userid">User ID:</label>
+					<input type="text" id="userid" name="userid"><br><br>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+					<input type="submit" value="Login">
+				</form>
+			</div>
+		</div>
+	</header>
+    <py-env>
+        - pandas
+        - matplotlib
+        - paths:
+            - recovery_data.csv
+    </py-env>
+    <div class="tile">Disaster A - Recovery Statistics</div>
+    <div class="graph1">
+        <div>
+        <py-script>
+            import pandas as pd
+            import matplotlib.pyplot as plt
+
+            # Read data from CSV file
+            df = pd.read_csv('recovery_data.csv')
+
+            # Create a bar chart for percentage of infrastructure restored
+            fig1, ax1 = plt.subplots()
+            ax1.bar(df['City'], df['Infrastructure Restored'])
+            ax1.set_title('Percentage of Infrastructure Restored by City')
+            ax1.set_xlabel('City')
+            ax1.set_ylabel('Percentage')
+
+            # Create a line chart for recovery rate
+            fig2, ax2 = plt.subplots()
+            ax2.plot(df['Date'], df['Recovery Rate'])
+            ax2.set_title('Recovery Rate Over Time')
+            ax2.set_xlabel('Date')
+            ax2.set_ylabel('Recovery Rate')
+
+            # Create a scatter plot for recovery time objective
+            fig3, ax3 = plt.subplots()
+            ax3.scatter(df['Cost to Government'], df['Recovery Time Objective'])
+            ax3.set_title('Cost to Government vs. Recovery Time Objective')
+            ax3.set_xlabel('Cost to Government')
+            ax3.set_ylabel('Recovery Time Objective')
+
+            # Create a pie chart for cost to government for recovery
+            fig4, ax4 = plt.subplots()
+            ax4.pie(df['Cost to Government'], labels=df['City'], autopct='%1.1f%%')
+            ax4.set_title('Cost to Government for Recovery by City')
+
+            # Display all visualizations
+            fig1
+            
+        </py-script>
+        </div>
+        <div>
+        <py-script>
+            fig2
+        </py-script>
+        </div>
+    <!-- </div>
+    <div class="graph2"> -->
+        <div>
+        <py-script>
+            fig3
+        </py-script>
+        </div>
+        <div>
+        <py-script>
+            fig4
+        </py-script>
+        </div>
+    </div>
+	<a href="https://www.ndrf.gov.in/"><div class="tile">For more details on recovery efforts, please visit National disaster response force</div>
+</body>
+</html>

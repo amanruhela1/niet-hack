@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SANKAT Location of Shelters</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <header>
+		<div class="logo">
+			<a href="index.html">SANKAT: Shelters Location</a>
+			<span>Dhaasu Coders</span>
+		</div>
+		<div class="cta">
+			<a id="rzp-button">Donate Now</a>
+			<a href="volunteersList.php">Current Volunteers</a>
+			<a href="./volunteer/login.php">Become Volunteer</a>
+			<a href="chating/login.php">Local Admin Login</a>
+			<div class="dropdown-content">
+				<form>
+					<label for="userid">User ID:</label>
+					<input type="text" id="userid" name="userid"><br><br>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+					<input type="submit" value="Login">
+				</form>
+			</div>
+		</div>
+	</header>
+    <h3>Search Shelter Centers</h3>
+	<label for="searchBox">Location:</label>
+	<input type="text" id="searchBox" oninput="searchCenters()" placeholder="Enter a location">
+	<table>
+		<thead>
+			<tr>
+				<th>Latitude</th>
+				<th>Longitude</th>
+				<th>Demand</th>
+			</tr>
+		</thead>
+		<tbody id="centerTable">
+		</tbody>
+	</table>
+	<script>
+		// Load the CSV file using Papa Parse
+		Papa.parse("delhi_demand.csv", {
+			header: true,
+			download: true,
+			complete: function(results) {
+				// Store the parsed data in a variable
+				var centers = results.data;
+				// Function to search for centers based on location
+				function searchCenters() {
+					// Get the user's search input
+					var searchInput = document.getElementById("searchBox").value.toLowerCase();
+					// Filter the centers based on location
+					var filteredCenters = centers.filter(function(center) {
+						return center.location.toLowerCase() === searchInput;
+					});
+					// Clear the table
+					document.getElementById("centerTable").innerHTML = "";
+					// Populate the table with the filtered centers
+					filteredCenters.forEach(function(center) {
+						var row = document.createElement("tr");
+						var latCell = document.createElement("td");
+						latCell.textContent = center.latitude;
+						row.appendChild(latCell);
+						var longCell = document.createElement("td");
+						longCell.textContent = center.longitude;
+						row.appendChild(longCell);
+						var demandCell = document.createElement("td");
+						demandCell.textContent = center.demand;
+						row.appendChild(demandCell);
+						document.getElementById("centerTable").appendChild(row);
+					});
+				}
+			}
+		});
+	</script>
+    <py-env>
+        - folium
+        - pandas
+        - paths:
+            - delhi_demand.csv
+            - delhi_parts.geojson
+            - your_data.csv
+    </py-env>
+
+<div class="mom">
+    <div class="child">
+        <py-script>
+        import folium
+        import pandas as pd
+        from pyodide.http import open_url
+
+        # Read the CSV file
+        # url_content = open_url("https://firstrespondersindia.s3.ap-south-1.amazonaws.com/delhi_demand.csv")
+        data = pd.read_csv('delhi_demand.csv')
+
+        # Create a map centered on New Delhi
+        map = folium.Map(location=[28.6448, 77.2167], zoom_start=11)
+
+        # Define color scale
+        colors = ['green', 'yellow', 'orange', 'red']
+        threshold_scale = [0, 5, 7, 8, 10]
+
+        # Add markers for each data point
+        for i in range(len(data)):
+            location = [data.iloc[i]['latitude'], data.iloc[i]['longitude']]
+            demand = data.iloc[i]['demand']
+            location_name = data.iloc[i]['location']
+            color = colors[min(int(demand), len(colors))-1]
+            
+            # Create a circle marker for each data point
+            folium.CircleMarker(
+                location=location,
+                radius=10,
+                popup=f"<strong>Location:</strong> {location_name}<br><strong>Demand:</strong> {demand}",
+                color=color,
+                fill=True,
+                fill_color=color
+            ).add_to(map)
+
+        legend_html = '''
+        <div style="position: fixed; 
+            bottom: 50px; left: 50px; width: 150px; height: 140px; 
+            border:2px solid grey; z-index:9999; font-size:14px;
+            background-color: #ffffff;
+            ">
+            <p style="margin:5px"><b>Legend</b></p>
+            <p style="margin:5px"><i class="fa fa-circle" style="color:green"></i>Low Demand</p>
+            <p style="margin:5px"><i class="fa fa-circle" style="color:yellow"></i>Medium Demand</p>
+            <p style="margin:5px"><i class="fa fa-circle" style="color:orange"></i>High Demand</p>
+            <p style="margin:5px"><i class="fa fa-circle" style="color:red"></i>Very High Demand</p>
+        </div>
+        '''
+        map.get_root().html.add_child(folium.Element(legend_html))
+
+        map
+            </py-script>
+    </div>
+    <!-- <div class="child">
+        <h1>Current Shelter locations in Dehli are shown below as per latest upadates:</h1>
+    </div> -->
+    <div class="'child">
+        <py-script>
+        import pandas as pd
+        import folium
+
+        # load the data from CSV file
+        df = pd.read_csv('your_data.csv')
+
+        # create a map centered on New Delhi using the Google Maps API
+        delhi_map = folium.Map(location=[28.644800, 77.216721], zoom_start=11, tiles='https://maps.googleapis.com/maps/api/js?key=AIzaSyA9xLBselcOosLYUiBSKezcNe1sPr85A2s', attr='Google')
+
+        # create a choropleth map
+        choropleth = folium.Choropleth(
+            geo_data='delhi_parts.geojson',
+            data=df,
+            columns=['Part', 'Demand'],
+            key_on='feature.properties.name',
+            fill_color='YlGn',
+            fill_opacity=0.7,
+            line_opacity=0.2,
+            legend_name='Demand of Products in New Delhi',
+            highlight=True
+        ).add_to(delhi_map)
+
+        # add tooltips
+        choropleth.geojson.add_child(
+            folium.features.GeoJsonTooltip(['name'], labels=False)
+        )
+        # display the map
+        delhi_map
+        </py-script>
+    </div>
+</body>
+</html>

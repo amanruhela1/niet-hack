@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SANKAT</title>
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<link rel="stylesheet" href="home.css">
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<a href="index.html">SANKAT: Strategic Aid Network for Keeping All Territories safe</a>
+			<span>Dhaasu Coders</span>
+		</div>
+		<div class="cta">
+			<a id="rzp-button">Donate Now</a>
+			<a href="volunteersList.php">Current Volunteers</a>
+			<a href="./volunteer/login.php">Become Volunteer</a>
+			<a href="chating/login.php">Local Admin Login</a>
+			<div class="dropdown-content">
+				<form>
+					<label for="userid">User ID:</label>
+					<input type="text" id="userid" name="userid"><br><br>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+					<input type="submit" value="Login">
+				</form>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="tile-container">
+			<!-- <a class="shelter" href="Emer">
+			<div>
+				<h2>Emergency Alerts</h2>
+				<p>Visit the national database for emergency mangement to receive up-to-date emergency alerts in your area.</p>
+			</div>
+			</a> -->
+			<a class="shelter" href="weathers.html">
+				<div>
+					<img src="images/weather.jpg" alt="">
+					<h2>Live Weather Alerts</h2>
+					<p>Get weather updates of any area</p>
+				</div>
+				</a>
+			<div class="tile">
+				<img src="images/rupee.png" alt="">
+				<h2>National Funds</h2>
+				<p>Contribute to national funds for disaster relief.</p>
+				<p>3000Rs. Donated till now.</p>
+			</div>
+			<div class="tile">
+				<img src="images/supply.jpg" alt="">
+				<h2>Supplies</h2>
+				<p>Donate supplies to those in need.</p>
+			</div>
+			
+			<a class="shelter" href="locations.html">
+				<div>
+					<img src="images/shelter.png" alt="">
+					<h2>Locations of shelter</h2>
+					<p>Track the recovery progress in disaster-affected areas.</p>
+				</div>
+			</a>
+			<a class="shelter" href="rebuildingss.html">
+				<div>
+					<img src="images/recovery.jpg" alt="">
+					<h2>Recovery Tracking</h2>
+					<p>Track the recovery progress in disaster-affected areas.</p>
+				</div>
+			</a>
+			
+			<a class="shelter" href="waste.html">
+				<div>
+					<img src="images/waste.jpg" alt="">
+					<h2>Waste disposal for disaster preparedness</h2>
+					<p>Know about proper e-waste disposal and how government handles nuclear waste</p>
+				</div>
+				</a>
+			<!-- Add more rows of tiles here -->
+		</div>
+	</main>
+	<div class="ticker">
+		<span>Mahesh Kumar donated Rs. 400</span>
+		<span>Suresh Jain donated Rs. 500</span>
+		<span>Sheetal Mehta donated Rs. 200</span>
+		<!-- Add more donation messages here -->
+	</div>
+	
+	<div class="donators-box">
+		<h2>Top Donators of the Month</h2>
+		<ul>
+			<li>Sarthak Kumar - Rs. 1000</li>
+			<li>Prashant - Rs. 800</li>
+			<li>Suresh Jain - Rs. 600</li>
+			<li>Mahesh - Rs. 400</li>
+			<li>Sheetal Mehta - Rs. 200</li>
+		</ul>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* Body styles */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #4da599;
+	color: #000;
+}
+
+/* Header styles */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: rgb(0, 127, 95);
+	color: #626c6e;
+}
+
+.logo a {
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+}
+
+.logo span {
+	font-size: 16px;
+	font-weight: normal;
+	display: block;
+}
+
+.cta a {
+	background-color: #fff;
+	color: #007f5f;
+	font-weight: bold;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+.cta a:hover {
+	background-color: #007f5f;
+	color: #fff;
+}
+
+.dropdown {
+	position: relative;
+}
+.label {
+    color:black
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #01777d;
+	padding: 10px;
+	top: 100%;
+	right: 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Tile styles */
+.tile-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 20px;
+	justify-content: center;
+}
+
+.tile {
+	flex-basis: 25%;
+	margin: 10px;
+	background-color: #d9eee1;
+	box-shadow: 2px 3px 5px rgb(134, 73, 73);
+	padding: 20px;
+	border-radius: 5px;
+}
+.shelter{
+	text-decoration: none;
+	color: black;
+	flex-basis: 25%;
+	margin: 10px;
+	background-color: #d9eee1;
+	box-shadow: 2px 3px 5px rgb(134, 73, 73);
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.tile h2 {
+	margin-top: 0;
+}
+
+.tile p {
+	margin-bottom: 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+	.tile {
+		flex-basis: 50%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.tile {
+		flex-basis: 100%;
+	}
+}
+.container {
+	display: flex;
+	flex-direction: row;
+}
+
+.disaster-list {
+	flex: 1;
+	padding: 20px;
+}
+
+.weather-search {
+	flex: 1;
+	padding: 20px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+label {
+	margin-right: 10px;
+}
+
+input[type="text"] {
+	flex: 1;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+	padding: 5px 10px;
+	font-size: 16px;
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+
+.current-weather {
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+h3 {
+	margin-top: 0;
+} 
+
+.mom {
+    width: 100%; /* Try setting this to 400px or something */
+    display: table;
+    border: 0px solid #444444;
+}
+.child {
+    display: table-cell;
+}
+.childinner {
+    margin-left: 25px;
+    /* Decorative .. */
+    background-color: #cccccc;
+    min-height: 40px;
+}
+.child:first-child .childinner {
+    margin-left: 0;
+}
+
+/* graphs */
+
+.graph1{
+	display: flex;
+	justify-content: space-around;
+}
+.graph2{
+	display: flex;
+	justify-content: space-around;
+}
+
+/* Styling for the donation ticker */
+.ticker {
+	background-color: #333;
+	color: #fff;
+	padding: 5px;
+	font-size: 20px;
+	/* position: fixed; */
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* z-index: 9999; */
+}
+
+.ticker span {
+	margin-right: 50px;
+	display: inline-block;
+	animation: ticker 7s linear infinite;
+	white-space: nowrap;
+}
+
+@keyframes ticker {
+	from { transform: translateX(100%); }
+	to { transform: translateX(-100%); }
+}
+
+/* Styling for the top donators box */
+.donators-box {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #d9eee1;
+	padding: 10px;
+	margin-top: 30px;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 2px 3px 5px rgb(134, 73, 73);
+}
+
+.donators-box h2 {
+	font-size: 24px;
+	margin-top: 0;
+}
+
+.donators-box ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.donators-box li {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+#rzp-button{
+	cursor: pointer;
+}
+.cod{
+	
+color: #d5e1d9;
+}

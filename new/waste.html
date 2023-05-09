@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Disaster Management - E-Waste Disposal</title>
+    <style>
+      /* Styles for the page layout */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      #main {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+      }
+      .tile {
+        background-color: #eee;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px #aaa;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        width: calc(50% - 20px);
+      }
+      .tile h2 {
+        margin-top: 0;
+      }
+      .tile p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+      /* Styles for the bulletin box */
+      #bulletin-box {
+        background-color: #eee;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px #aaa;
+        height: 400px;
+        margin: 10px;
+        overflow: hidden;
+        padding: 20px;
+        position: relative;
+        width: calc(50% - 20px);
+      }
+      #bulletin-box h2 {
+        margin-top: 0;
+      }
+      #bulletin-box ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      #bulletin-box li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        position: absolute;
+        width: 100%;
+      }
+      /* Styles for the bulletin animations */
+      @keyframes bulletin {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100%); }
+      }
+      .bulletin-animation {
+        animation: bulletin 5s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with title -->
+    <header>
+      <h1>Disaster Management - E-Waste Disposal</h1>
+    </header>
+    <!-- Main content with tiles and bulletin box -->
+    <div id="main">
+      <!-- Tile 1 - Why Proper Disposal is Important -->
+      <div class="tile">
+        <h2>Why Proper Disposal of E-Waste is Important</h2>
+        <p>Improper disposal of e-waste can lead to serious environmental and health problems. E-waste often contains toxic materials such as lead, mercury, and cadmium that can pollute soil and water, and cause harm to humans and animals. By properly disposing of e-waste, we can protect the environment and ensure the health and safety of our communities.</p>
+        <img src="images/e-waste.jpg" alt="E-Waste Disposal" style="max-width: 100%;">
+      </div>
+      <div class="bulletin-container">
+        <h3>Latest Bulletins</h3>
+        <div class="bulletin-list">
+            <marquee direction="up" scrollamount="2">
+                <ul>
+                    <li>E-waste collecting agencies</li>
+                    <li>Proper e-waste processing</li>
+                    <li>Nuclear waste disposal guidelines</li>
+                    <li>Disaster management guidelines</li>
+                    <li>Hazardous waste disposal</li>
+                    <li>Waste reduction tips</li>
+                    <li>Recycling benefits and tips</li>
+                    <li>Protecting the environment</li>
+                    <li>Proper waste management</li>
+                    <li>Reducing carbon footprint</li>
+                </ul>
+            </marquee>
+        </div>
+    </div>
+      <!-- Tile 2 - Government Processing of Nuclear Waste -->
+      <div class="tile">
+        <h2>Government Processing of Nuclear Waste</h2>
+        <p>Nuclear waste is a particularly hazardous form</p>
+        </div>
+
+
+
+    <!-- Tiles for other important information -->
+    <div class="tiles-container">
+        <div class="tile">
+            <img src="images/recycling.jpg" alt="Recycling">
+            <h3>Reduce, Reuse, Recycle</h3>
+            <p>Learn how to reduce your waste and recycle properly</p>
+        </div>
+        <div class="tile">
+            <img src="images/disposal.jpg" alt="Disposal">
+            <h3>Proper Disposal</h3>
+            <p>Find out how to properly dispose of hazardous waste</p>
+        </div>
+        <div class="tile">
+            <img src="images/nuclear.jpg" alt="Nuclear Waste">
+            <h3>Nuclear Waste</h3>
+            <p>Learn about the proper disposal of nuclear waste</p>
+        </div>
+    </div>
+
+    <!-- Moving bulletin box -->
+    <!-- <div class="bulletin-container">
+        <h3>Latest Bulletins</h3>
+        <div class="bulletin-list">
+            <marquee direction="up" scrollamount="2">
+                <ul>
+                    <li>E-waste collecting agencies</li>
+                    <li>Proper e-waste processing</li>
+                    <li>Nuclear waste disposal guidelines</li>
+                    <li>Disaster management guidelines</li>
+                    <li>Hazardous waste disposal</li>
+                    <li>Waste reduction tips</li>
+                    <li>Recycling benefits and tips</li>
+                    <li>Protecting the environment</li>
+                    <li>Proper waste management</li>
+                    <li>Reducing carbon footprint</li>
+                </ul>
+            </marquee>
+        </div>
+    </div> -->
+</body>
+</html>
