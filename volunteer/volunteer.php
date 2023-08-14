@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "conn.php";
+include "db.php";
 
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include "conn.php";
 <head>
   <meta charset="UTF-8">
   <title>Volunteer Helping Form</title>
-  <link rel="stylesheet" href="voltun.css">
+  <link rel="stylesheet" href="voltables.css">
   <script>
     function getLocation() {
       if (navigator.geolocation) {
